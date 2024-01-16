@@ -188,7 +188,7 @@ u32 __attribute__((weak)) qos_sram_read(u32 offset)
 	return 0;
 }
 
-int __attribute__((weak)) get_cur_vcore_uv()
+int __attribute__((weak)) get_cur_vcore_uv(void)
 {
 	return 0;
 }
