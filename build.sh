@@ -5,15 +5,14 @@ function compile()
 
 source ~/.bashrc && source ~/.profile
 export LC_ALL=C && export USE_CCACHE=1
-ccache -M 100G
+ccache -M 32G
 export ARCH=arm64
-export KBUILD_BUILD_HOST=MARKxDEVS
-export KBUILD_BUILD_USER="AbzRaider"
-git clone --depth=1  https://gitlab.com/LeCmnGend/proton-clang.git -b clang-13  clang
-
+export KBUILD_BUILD_HOST=univers629
+export KBUILD_BUILD_USER="univers629"
 
 
  if ! [ -d "out" ]; then
+ 
 echo "Kernel OUT Directory Not Found . Making Again"
 mkdir out
 fi
@@ -36,15 +35,3 @@ make -j$(nproc --all) O=out \
    		      OBJDUMP=llvm-objdump \
                       CONFIG_NO_ERROR_ON_MISMATCH=y 2>&1 | tee error.log 
 }
-
-function zupload()
-{
-rm -rf AnyKernel	
-git clone --depth=1 https://github.com/AbzRaider/AnyKernel33 -b ares AnyKernel
-cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
-cd AnyKernel
-zip -r9 Test-OSS-KERNEL-ARES-S.zip *
-curl --upload-file "Test-OSS-KERNEL-ARES-S.zip" https://free.keep.sh
-}
-compile
-zupload
