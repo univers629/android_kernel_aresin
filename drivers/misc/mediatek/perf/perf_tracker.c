@@ -193,7 +193,7 @@ int __attribute__((weak)) get_cur_vcore_uv(void)
 	return 0;
 }
 
-int __attribute__((weak)) get_cur_ddr_khz()
+int __attribute__((weak)) get_cur_ddr_khz(void)
 {
 	return 0;
 }
