@@ -368,7 +368,6 @@ static inline uint8_t dp_dfp_u_select_mode(struct pd_port *pd_port,
 				dp_remote_mode, &local_dp_config,
 				&remote_dp_config);
 			if (match_score >  best_match_score) {
-				local_index = j;
 				remote_index = i;
 				dp_data->local_config = local_dp_config;
 				dp_data->remote_config = remote_dp_config;
